@@ -1,0 +1,104 @@
+# =========================
+# Dependencias
+# =========================
+node_modules/
+**/node_modules/
+
+# =========================
+# Build / Output
+# =========================
+dist/
+build/
+.next/
+out/
+coverage/
+**/dist/
+**/build/
+**/.next/
+**/out/
+**/coverage/
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Archivos de entorno
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDEs / Editores
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Cache / Temporales
+# =========================
+.cache/
+.tmp/
+.temp/
+.eslintcache
+*.tsbuildinfo
+
+# =========================
+# Testing
+# =========================
+jest.config.tsbuildinfo
+
+# =========================
+# Archivos específicos de frameworks
+# =========================
+
+# React (Vite, CRA, Next)
+vite.svg
+
+# NestJS
+**/dist/
+**/node_modules/
+
+# =========================
+# Package managers
+# =========================
+.pnpm-store/
+.npm/
+.yarn/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Archivos sensibles
+# =========================
+*.pem
+*.key
+*.crt
+
+# =========================
+# Misc
+# =========================
+*.tgz
+*.zip
