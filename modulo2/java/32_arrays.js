@@ -163,3 +163,17 @@ const anidado = [[1, 2], [3, 4], [5, 6]];
 const plano   = anidado.reduce((acum, arr) => [...acum, ...arr], []);
 console.log(plano);   // [1, 2, 3, 4, 5, 6]
 // alternativa moderna: anidado.flat()
+
+
+const celsius = [0, 15, -5, 22, 37, 100, -10, 28]; 
+
+
+console.log(temperatura.map(c => (c* 9/5 + 32)));
+
+const temperatura = celsius.filter(c => c >=0 && c<=30);
+
+const entre = celsius
+  .filter(c => c >=0 && c<=30)
+  .map(c => (c* 9/5 + 32));
+
+
