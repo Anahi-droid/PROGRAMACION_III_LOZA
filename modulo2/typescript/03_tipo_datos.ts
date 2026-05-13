@@ -1,18 +1,18 @@
 // tipos-string.ts
-const nombre:    string = "Ana García";
-const saludo:    string = `Hola, ${nombre}`;
+const nombreS:    string = "Ana García";
+const saludo:    string = `Hola, ${nombreS}`;
 const vacia:     string = "";
 const comillas:  string = 'También con comillas simples';
 
-console.log(nombre);
+console.log(nombreS);
 console.log(saludo);
 console.log(`La cadena vacía tiene longitud: ${vacia.length}`);
 
 // Métodos de string funcionan igual que en JS
-console.log(nombre.toUpperCase());      // ANA GARCÍA
-console.log(nombre.toLowerCase());      // ana garcía
-console.log(nombre.includes("García")); // true
-console.log(nombre.split(" "));         // ["Ana", "García"]
+console.log(nombreS.toUpperCase());      // ANA GARCÍA
+console.log(nombreS.toLowerCase());      // ana garcía
+console.log(nombreS.includes("García")); // true
+console.log(nombreS.split(" "));         // ["Ana", "García"]
 
 // tipos-number.ts
 const entero:     number = 42;
