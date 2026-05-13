@@ -111,7 +111,7 @@ const anabanana: Empleado = {
   // telefono y salario son opcionales — no hace falta incluirlos
 };
 
-const luis: Empleado = {
+const luisS: Empleado = {
   id:          2,
   nombre:      "Luis Pérez",
   email:       "luis@empresa.com",
@@ -123,7 +123,7 @@ const luis: Empleado = {
 // ana.id = 99;  // ❌ Error — id es readonly
 
 console.log(`${ana.nombre} — tel: ${anabanana.telefonos ?? "no registrado"}`);
-console.log(`${luis.nombre} — tel: ${luis.telefonos ?? "no registrado"}`);
+console.log(`${luisS.nombre} — tel: ${luisS.telefonos ?? "no registrado"}`);
 
 function mostrarSalario(e: Empleado): void {
   if (e.salario !== undefined) {
@@ -134,7 +134,7 @@ function mostrarSalario(e: Empleado): void {
 }
 
 mostrarSalario(anabanana);
-mostrarSalario(luis);
+mostrarSalario(luisS);
 
 // extender-interfaces.ts
 
