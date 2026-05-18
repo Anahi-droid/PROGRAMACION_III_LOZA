@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import { AppService } from './app.service';
 import { ProductDto } from './product.dto';
 
@@ -21,4 +21,22 @@ export class AppController {
     return this.appService.findAll();
   }
 
+  @Put("/products/:id")
+  update(@Param('id') id: string, @Body() updatedProduct: ProductDto): any {
+    return this.appService.update(id, updatedProduct);
+  }
+  
+
+  @Delete(':id')
+  deleteById(@Param('id') id: string): ProductDto {
+  return this.appService.deleteById(id);
 }
+
+@Post("/area-triangulo")
+  areaTriangulo(@Body() data: any): any {
+    return this.appService.areaTriangulo(data);
+  }
+  
+
+}
+
