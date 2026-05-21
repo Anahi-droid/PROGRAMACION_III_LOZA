@@ -1,9 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query} from '@nestjs/common';
 import { AppService } from './app.service';
 import { ProductDto } from './product.dto';
+import { Pagination } from 'nestjs-typeorm-paginate';
+import { User } from './users/users.entity';
 
 @Controller()
 export class AppController {
+  usersService: any;
   constructor(private readonly appService: AppService) {}
 
   @Get("/health")
@@ -16,9 +19,13 @@ export class AppController {
     return this.appService.createProduct(product);
   }
 
-  @Get("/products/:id")
-  findAll(): ProductDto[] { 
-    return this.appService.findAll();
+  @Get()
+  findAll(
+    @Query('page') page = 1,
+    @Query('limit') limit = 10,
+  ): Promise<Pagination<User>> {
+    limit = limit > 100 ? 100 : limit;
+    return this.usersService.findAll({ page, limit });
   }
 
   @Put("/products/:id")
