@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idiomas</title>
+</head>
+<body>
+    <h1>Tabla</h1>
+
+    <table>
+        <tr>
+            <th>Estudiante</th>
+            <th>Edad</th>
+            <th>Idioma</th>
+        </tr>
+        <tr>
+            <td>Maria Lopez</td>
+            <td>21</td>
+            <td>Ingles</td>
+        </tr>
+        <tr>
+            <td>Carlos Perez</td>
+            <td>25</td>
+            <td>Frances</td>
+        </tr>
+        <tr>
+            <td>Lucia Torres</td>
+            <td>19</td>
+            <td>Aleman</td>
+        </tr>
+    </table>
+
+<hr>
+
+    <h1>Tabla por secciones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Precio</th>
+                <th>Cupos</th>
+                <th>Nivel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ingles Basico</td>
+                <td>120$</td>
+                <td>15</td>
+                <td>Basico</td>
+            </tr>
+            <tr>
+                <td>Frances Intermedio</td>
+                <td>150$</td>
+                <td>10</td>
+                <td>Intermedio</td>
+            </tr>
+
+            <tr>
+                <td>Aleman Avanzado</td>
+                <td>200$</td>
+                <td>8</td>
+                <td>Avanzado</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>470$</td>
+                <td>33</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+<hr>
+
+    <h1><em>Tabla Scope - Evaluaciones</em></h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Idiomas</th>
+                <th scope="col">Lectura</th>
+                <th scope="col">Escritura</th>
+                <th scope="col">Conversacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row"><strong>Ingles</strong></td>
+                <td>9</td>
+                <td>8</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td scope="row"><strong>Frances</strong></td>
+                <td>8</td>
+                <td>9</td>
+                <td>8</td>
+            </tr>
+
+            <tr>
+                <td scope="row"><strong>Italiano</strong></td>
+                <td>10</td>
+                <td>9</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h1><em>Combinaciones de celdas - Academias 🌍</em></h1>
+    <table border="5">
+        <thead>
+            <tr>
+                <th rowspan="2">Academia</th>
+                <th colspan="3">Cursos</th>
+                <th rowspan="2">Total</th>
+            </tr>
+            <tr>
+                <th>Basico</th>
+                <th>Intermedio</th>
+                <th>Avanzado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Language Center</strong></td>
+                <td>12</td>
+                <td>8</td>
+                <td>5</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td><strong>English World</strong></td>
+                <td>15</td>
+                <td>10</td>
+                <td>6</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td><strong>Global Languages</strong></td>
+                <td>10</td>
+                <td>7</td>
+                <td>4</td>
+                <td>21</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h1>Titulo y Resumen - Estudiantes 📚</h1>
+    <table border="3">
+        <caption><mark>Notas finales de idiomas</mark></caption>
+        <thead>
+            <tr>
+                <th>Estudiantes</th>
+                <th>Ingles</th>
+                <th>Frances</th>
+                <th>Aleman</th>
+                <th>Promedio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><em>Andrea Ruiz</em></td>
+                <td>9</td>
+                <td>8</td>
+                <td>10</td>
+                <td>9.0</td>
+            </tr>
+            <tr>
+                <td><em>Jose Medina</em></td>
+                <td>7</td>
+                <td>8</td>
+                <td>7</td>
+                <td>7.3</td>
+            </tr>
+            <tr>
+                <td><em>Sofia Lara</em></td>
+                <td>10</td>
+                <td>9</td>
+                <td>10</td>
+                <td>9.7</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Promedio General</th>
+                <td>8.7</td>
+                <td>8.3</td>
+                <td>9.0</td>
+                <td>8.6</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+
+    <h1>Colgrup - Horarios 🕑</h1>
+    <table border="2">
+        <thead>
+            <tr>
+                <col style="background-color: lightblue;">
+                <col style="background-color: lightgreen;">
+                <col style="background-color: lightyellow;">
+                <col style="background-color: lightpink;">
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><em>Curso de Ingles</em></td>
+                <td>Lunes</td>
+                <td>Miercoles</td>
+                <td>Viernes</td>
+            </tr>
+            <tr>
+                <td><em>Horario</em></td>
+                <td>8:00 am</td>
+                <td>10:00 am</td>
+                <td>2:00 pm</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
