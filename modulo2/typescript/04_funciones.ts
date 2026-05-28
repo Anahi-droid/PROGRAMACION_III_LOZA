@@ -29,7 +29,7 @@ function multiplicar(a: number, b: number): number {
 }
 
 // Recibe un string, devuelve string
-function saludar(nombre: string): string {
+function saludarS(nombre: string): string {
   return `Hola, ${nombre}!`;
 }
 
