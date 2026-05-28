@@ -1,0 +1,1 @@
+console.log("Bienvenido a la plataforma de aprendizaje de idiomas");
