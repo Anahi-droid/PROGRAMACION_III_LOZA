@@ -4,7 +4,7 @@ export class LoginDto {
   @IsEmail()
   email?: string;
 
-  @IsEmail()
+  @IsString()
   username?: string;
 
   @IsString()
