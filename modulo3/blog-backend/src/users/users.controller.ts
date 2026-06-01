@@ -24,10 +24,25 @@ export class UsersController {
 
   @Get()
   async findAll(@Query() query: QueryDto) {
-    const result = await this.usersService.findAll(query);
-    return new SuccessResponseDto('Users retrieved successfully', result);
-  }
+    try {
 
+      console.log(query);
+
+      const result = await this.usersService.findAll(query);
+
+      return new SuccessResponseDto(
+        'Users retrieved successfully',
+        result
+      );
+
+    } catch (error) {
+
+      console.log('ERROR FIND ALL');
+      console.log(error);
+
+      throw error;
+    }
+  }
 
 
 
@@ -53,6 +68,7 @@ export class UsersController {
     if (!user) throw new NotFoundException('User not found');
     return new SuccessResponseDto('Category deleted successfully', user);
   }
+
   @Put(':id/profile')
   @UseInterceptors(FileInterceptor('profile', {
     storage: diskStorage({
@@ -73,8 +89,20 @@ export class UsersController {
     @Param('id') id: string,
     @UploadedFile() file: Express.Multer.File,
   ) {
-    if (!file) throw new BadRequestException('Profile image is required');
-    const user = await this.usersService.updateProfile(id, file.filename);
-    return new SuccessResponseDto('Profile image updated', user);
+    try {
+      console.log('Upload profile');
+
+      if (!file) {
+        throw new BadRequestException('Profile image is required');
+      }
+
+      const user = await this.usersService.updateProfile(id, file.filename);
+
+      return new SuccessResponseDto('Profile image updated', user);
+
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 }
