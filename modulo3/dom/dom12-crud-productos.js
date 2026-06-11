@@ -1,175 +1,158 @@
 const productos = [
     {
-        id: 1,
-        nombre: "Teclado",
-        precio: 10.99,
-        descripcion: "Teclado mecánico"
+        "id": 1, 
+        "nombre": "Teclado", 
+        "descripcion":"Teclado mecánico", 
+        "precio": 10.99
     },
     {
-        id: 2,
-        nombre: "Mouse",
-        precio: 5.99,
-        descripcion: "Mouse inalámbrico"
+        "id": 2, 
+        "nombre": "Mouse", 
+        "descripcion":"Mouse", 
+        "precio": 19.99
     },
     {
-        id: 3,
-        nombre: "Monitor",
-        precio: 199.99,
-        descripcion: "Monitor de 24 pulgadas"
+        "id": 3, 
+        "nombre": "Monitor", 
+        "descripcion":"Monitor 19 pulgadas", 
+        "precio": 500.49
     }
 ];
 
-let productoEditando = null;
-
-function renderProductos() {
-
+function renderProductos(){
     const cuerpoTabla = document.getElementById('cuerpoTabla');
     cuerpoTabla.innerHTML = '';
-
-    productos.forEach(producto => {
-
-        const fila = document.createElement('tr');
-
-        fila.innerHTML = `
-            <td>${producto.id}</td>
-            <td>${producto.nombre}</td>
-            <td>${producto.descripcion}</td>
-            <td>$${producto.precio}</td>
-            <td>
-                <button onclick="editarProducto(${producto.id})">
-                    Editar
-                </button>
-
-                <button onclick="eliminarProducto(${producto.id})">
-                    Eliminar
-                </button>
+    productos.forEach(producto =>{
+        const productoElement = document.createElement('tr');
+        productoElement.innerHTML = `
+        <td>${producto.id}</td>
+        <td>${producto.nombre}</td>
+        <td>${producto.descripcion}</td>
+        <td>${producto.precio.toFixed(2)}</td>
+        <td>
+            <button onclick="editarProducto(${producto.id})">Editar</button>
+            <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
             </td>
         `;
-
-        cuerpoTabla.appendChild(fila);
+        cuerpoTabla.appendChild(productoElement);
     });
 }
 
-function agregarProducto() {
-
+function agregarProducto(){
     const nombreInput = document.getElementById('nombre').value.trim();
-
     const descripcionInput = document.getElementById('descripcion').value.trim();
-
     const precioInput = document.getElementById('precio').value.trim();
-
-    if (!nombreInput || !descripcionInput || !precioInput) {
-
-        alert('Por favor complete todos los campos');
+    if(!nombreInput || !descripcionInput || !precioInput) {
+        alert('Por favor, complete todos los campos.');
         return;
     }
-
-    if (productoEditando !== null) {
-
-        const producto = productos.find(
-            p => p.id === productoEditando
-        );
-
-        producto.nombre = nombreInput;
-        producto.descripcion = descripcionInput;
-        producto.precio = parseFloat(precioInput);
-
-        productoEditando = null;
-
-        document.getElementById('btn_agregar').textContent =
-            'Agregar Producto';
-
-    } else {
-
-        const nuevoProducto = {
-
-            id: productos.length > 0
-                ? Math.max(...productos.map(p => p.id)) + 1
-                : 1,
-
-            nombre: nombreInput,
-            descripcion: descripcionInput,
-            precio: parseFloat(precioInput)
-        };
-
-        productos.push(nuevoProducto);
-    }
-
+    const nuevoProducto = {
+        id: productos.length > 0 ? 
+        Math.max(...productos.map(p => p.id))+1:1,
+        nombre:nombreInput,
+        descripcion: descripcionInput,
+        precio: parseFloat(precioInput)
+    };
+    productos.push(nuevoProducto);
     renderProductos();
     limpiarFormulario();
 }
 
-function editarProducto(id) {
-
-    const producto = productos.find(
-        p => p.id === id
-    );
-
-    document.getElementById('nombre').value =
-        producto.nombre;
-
-    document.getElementById('descripcion').value =
-        producto.descripcion;
-
-    document.getElementById('precio').value =
-        producto.precio;
-
-    productoEditando = id;
-
-    document.getElementById('btn_agregar').textContent =
-        'Actualizar Producto';
+function limpiarFormulario(){
+    document.getElementById('nombre').value = '';
+    document.getElementById('descripcion').value = '';
+    document.getElementById('precio').value = '';
 }
 
+const agregarBtn = document.getElementById('btn_agregar');
+agregarBtn.addEventListener('click', agregarProducto);
+
+let idEditar = null;
+function editarProducto(id) {
+    const producto = productos.find(p => p.id === id);
+    if (producto) {
+        document.getElementById('nombre').value = producto.nombre;
+        document.getElementById('descripcion').value = producto.descripcion;
+        document.getElementById('precio').value = producto.precio;
+        idEditar = id;
+        agregarBtn.textContent = 'Actualizar Producto';
+        agregarBtn.removeEventListener('click', agregarProducto);
+        agregarBtn.addEventListener('click', actualizarProducto);
+    }
+}
+
+function actualizarProducto() {
+    const nombreInput = document
+        .getElementById('nombre').value.trim();
+    const descripcionInput = document
+        .getElementById('descripcion').value.trim();
+    const precioInput = document
+        .getElementById('precio').value.trim();
+
+    if (!nombreInput || !descripcionInput
+        || !precioInput) {
+        alert('Por favor, complete todos los campos.');
+        return;
+    }
+
+    const productoIndex = productos.findIndex(p => p.id === idEditar);
+    if (productoIndex !== -1) {
+        productos[productoIndex] = {
+            id: idEditar,
+            nombre: nombreInput,
+            descripcion: descripcionInput,
+            precio: parseFloat(precioInput)
+        };
+        renderProductos();
+        limpiarFormulario();
+        agregarBtn.textContent = 'Agregar Producto';
+        agregarBtn.removeEventListener('click', actualizarProducto);
+        agregarBtn.addEventListener('click', agregarProducto);
+        idEditar = null;
+    }
+}
+
+function cancelarEdicion() {
+    limpiarFormulario();
+    agregarBtn.textContent = 'Agregar Producto';
+    agregarBtn.removeEventListener('click', actualizarProducto);
+    agregarBtn.addEventListener('click', agregarProducto);
+    idEditar = null;
+}
+const cancelarBtn = document.getElementById('btn_cancelar');
+cancelarBtn.addEventListener('click', cancelarEdicion);
+
 function eliminarProducto(id) {
-
-    const indice = productos.findIndex(
-        p => p.id === id
-    );
-
-    if (indice !== -1) {
-
-        const confirmar = confirm(
-            '¿Desea eliminar este producto?'
-        );
-
-        if (confirmar) {
-
-            productos.splice(indice, 1);
-
+    const index = productos.findIndex(p => p.id === id);
+    if (index !== -1) {
+        if (confirm('¿Está seguro de eliminar este producto?')) {
+            productos.splice(index, 1);
             renderProductos();
         }
     }
 }
 
-function limpiarFormulario() {
+function actualizarEstadisticas() {
+    const totalProductos = productos.length;
+    const precioPromedio = totalProductos > 0 ?
+        (productos.reduce((sum, p) => sum + p.precio, 0) / totalProductos).toFixed(2) : 0;
+    
+    document.getElementById('totalProductos')
+        .textContent = totalProductos;
+    document.getElementById('precioPromedio')
+        .textContent = precioPromedio;
 
-    document.getElementById('nombre').value = '';
+    const productoMasCaro = productos.length > 0 ?
+        Math.max(...productos.map(p => p.precio)) : 0;
+    const productoMasBarato = productos.length > 0 ?
+        Math.min(...productos.map(p => p.precio)) : 0;
 
-    document.getElementById('descripcion').value = '';
-
-    document.getElementById('precio').value = '';
-
-    productoEditando = null;
-
-    document.getElementById('btn_agregar').textContent =
-        'Agregar Producto';
+    document.getElementById('productoMasCaro')
+        .textContent = productoMasCaro;
+    document.getElementById('productoMasBarato')
+        .textContent = productoMasBarato;
 }
 
-const agregarBtn = document.getElementById('btn_agregar');
-
-agregarBtn.addEventListener(
-    'click',
-    agregarProducto
-);
-
-const cancelarBtn = document.getElementById('btn_cancelar');
-
-cancelarBtn.addEventListener(
-    'click',
-    limpiarFormulario
-);
-
-window.onload = function () {
-
+window.onload = function(){
     renderProductos();
 };
