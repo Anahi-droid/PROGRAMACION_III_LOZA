@@ -1,0 +1,65 @@
+
+h3 {
+    color: blue;
+    font-size: 4rem;
+}
+
+.parrafos{
+    color: green;
+    font-size: 1rem;
+}
+
+.producto-card{
+    background-color: white;
+    border: 1px solid #d0e6ff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.producto-nombre{
+    font-size: 1.1rem;
+    color:green;
+}
+
+.producto-precio{
+    font-size: 1.3rem;
+    color: blue;
+    font-weight: bold;
+}
+
+#parrafo-id{
+    font-size: 2.3rem;
+    color: green;
+    font-weight: bold; 
+}
+
+* {
+    color: blue;
+    font-weight: bold; 
+    margin: 0;
+    padding: 0;
+}
+
+.menu>li{
+    color: green;
+}
+
+.navbar a{
+    color: blue;
+    text-decoration: none;
+}
+
+h4, h5, h6{
+    color: green;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button.btn-primario{
+    background-color: green;
+    color: white;
+}
+
+button.btn-error{
+    background-color: blue;
+    color: white;
+}

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <style>
+        h2 {
+            color:blueviolet;
+            font-size: 3rem;
+        }
+    </style>
+    <link rel="stylesheet" href="04_reset.css">
+    <link rel="stylesheet" href="04_display.css">
+    
+</head>
+<body>
+    <h1 style="color: rgba(255, 0, 191, 0.815);">Display</h1>
+    <div class="banner-oferta">🔥 Oferta especial: 20% en laptops </div>
+    <div class="etiqueta-nuevo">Nuevo producto </div>
+    <button class="btn-carrito">Agregar al carrito </button>
+
+    <button onclick="toggleMenu()">Menu</button>
+    <div id="menu" class="menu-movil">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu(){
+            const menu = document.getElementById('menu')
+            menu.classList.toggle('activo')
+        }
+    </script>
+
+
+    
+</body> 
+</html>

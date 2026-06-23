@@ -1,0 +1,71 @@
+.parrafo {
+    line-height: 1.6; /* 1.6 × font-size actual */
+  }
+  
+  .titulo-producto {
+    line-height: 1.2; /* títulos más compactos */
+  }
+  
+  .descripcion-larga {
+    line-height: 1.8; /* textos largos más cómodos de leer */
+  }
+
+  .logo-tienda {
+    letter-spacing: 0.15em; /* separa letras */
+    text-transform: uppercase;
+  }
+  
+  .etiqueta-categoria {
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+  }
+
+  .banner-oferta    { text-align: center; }
+  .descripcion      { text-align: left; }
+  .precio-total     { text-align: right; }
+  .texto-justificado { text-align: justify; }
+
+/* Links del menú sin subrayado */
+.none-text-decoration {
+  text-decoration: none;
+}
+
+/* Texto tachado */
+.precio-antes {
+  text-decoration: line-through;
+  color: #1e90ff;
+}
+
+/* Subrayado personalizado */
+.link-destacado {
+  text-decoration: underline;
+  text-decoration-color: #008000;
+  text-underline-offset: 4px;
+}
+
+.logo-tienda      { text-transform: uppercase; }
+.subtitulo        { text-transform: capitalize; }
+.codigo-producto  { text-transform: lowercase; }
+
+.producto-nombre {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.alerta { color: blue; }
+.exito  { color: green; }
+.info   { color: #1e90ff; }
+
+:root {
+  --color-primario:    #1e90ff;
+  --color-secundario:  #008000;
+  --color-acento:      #66b2ff;
+  --color-fondo:       #f8f9fa;
+  --color-texto:       #212529;
+}
+
+h1{
+  color: var(--color-primario);
+}
