@@ -1,0 +1,28 @@
+// src/components/TodoList.test.tsx
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { TodoList } from './TodoList';
+import type { Todo } from '../types';
+
+const tareas: Todo[] = [
+  { id: '1', text: 'Comprar pan', completed: false },
+  { id: '2', text: 'Lavar el coche', completed: true },
+  { id: '3', text: 'Estudiar Vitest', completed: false },
+];
+
+describe('TodoList · queries', () => {
+  it('debería renderizar un listitem por cada tarea (getAllByRole)', () => {
+    // Arrange
+    render(<TodoList todos={tareas} onToggle={() => {}} onDelete={() => {}} />);
+    // Act + Assert: tres tareas → tres elementos de lista
+    const items = screen.getAllByRole('listitem');
+    expect(items).toHaveLength(3);
+  });
+
+  it('debería encontrar la lista por su aria-label', () => {
+    render(<TodoList todos={tareas} onToggle={() => {}} onDelete={() => {}} />);
+    expect(
+      screen.getByRole('list', { name: 'Lista de tareas' }),
+    ).toBeInTheDocument();
+  });
+});
