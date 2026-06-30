@@ -1,10 +1,9 @@
-// src/components/Hello.test.tsx
-import { describe, it, expect } from 'vitest';
-import { Hello } from './Hello';
+// src/components/Hello.tsx
+// Componente trivial usado únicamente para verificar la configuración.
+interface HelloProps {
+  name: string;
+}
 
-describe('Hello', () => {
-  // El test mínimo: el componente existe y es importable.
-  it('debería estar definido', () => {
-    expect(Hello).toBeDefined();
-  });
-});
+export function Hello({ name }: HelloProps) {
+  return <p>Hola, {name}</p>;
+}

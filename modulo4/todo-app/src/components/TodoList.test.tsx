@@ -25,4 +25,14 @@ describe('TodoList · queries', () => {
       screen.getByRole('list', { name: 'Lista de tareas' }),
     ).toBeInTheDocument();
   });
+
+  it('debería mostrar el estado vacío cuando no hay tareas', () => {
+    // Arrange: lista vacía
+    render(<TodoList todos={[]} onToggle={() => {}} onDelete={() => {}} />);
+    // Assert: aparece el mensaje y NO hay listitems
+    expect(screen.getByText('No hay tareas pendientes')).toBeInTheDocument();
+    expect(screen.queryAllByRole('listitem')).toHaveLength(0);
+  });
+
+  
 });
