@@ -10,7 +10,6 @@ import PriceTag            from './components/PriceTag'
 import StatusBadge         from './components/StatusBadge'
 import MiniProfileCard     from './components/MiniProfileCard'
 import SimpleInfoTable     from './components/SimpleInfoTable'
-import VehiculosTable  from './components/VehiculosTable'
 /*import ProductCard         from './components/ProductCard'
 import ProductCatalogList  from './components/ProductCatalogList'
 import UserProfileCard     from './components/UserProfileCard'*/
@@ -32,7 +31,7 @@ import UserProfileCard     from './components/UserProfileCard'*/
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
 // └──────────────────────────────────────────────────────────────────────────┘
 
-const PASO = 11
+const PASO = 9
 const fruits = [
   { name: 'Manzana', emoji: '🍎', calories: 52 },
   { name: 'Banana',  emoji: '🍌', calories: 89 },
@@ -97,33 +96,7 @@ export default function App() {
         ]}
       />
     ) : 
-    PASO === 11 ? (
-      <VehiculosTable
-        title="Resumen del pedido"
-        rows={[
-          { label: 'Marca',  value: 'Subaru' },
-          { label: 'Modelo',   value: 'WRX' },
-          { label: 'Año',     value: '2026'},
-          { label: 'Precio',   value: '$60000.00'},
-          { label: 'Envio',   value: '$25.00'},
-          { label: 'Total',   value: '$60025.00', highlight: true },
-        ]}
-        
-      />
-    ) :
-    /*
-    PASO === 11 ? <ProductCard title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> :
-    PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
-    PASO === 13 ? (
-      <UserProfileCard
-        fullName="Ana García"
-        email="ana@ejemplo.com"
-        role="admin"
-        isActive={true}
-        skills={['TypeScript', 'React', 'Node.js']}
-        bio="Desarrolladora fullstack con 5 años de experiencia."
-      />
-    ) : */ 
+  
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
