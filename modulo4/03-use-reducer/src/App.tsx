@@ -2,7 +2,7 @@
 
 import BasicCounter     from './components/BasicCounter'
 import RegistrationForm from './components/RegistrationForm'
-/*import ShoppingCart     from './components/ShoppingCart'*/
+import ShoppingCart     from './components/ShoppingCart'
 
 // ┌──────────────────────────────────────────────────────────────────────┐
 // │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.      │
@@ -16,7 +16,7 @@ export default function App() {
   const content =
     PASO === 1 ? <BasicCounter /> :
     PASO === 2 ? <RegistrationForm /> :
-    /*PASO === 3 ? <ShoppingCart /> :*/
+    PASO === 3 ? <ShoppingCart /> :
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
