@@ -16,6 +16,8 @@ const PASO = 1
 
 export default function App() {
   const content = PASO === 1 ? <AutoFocusForm /> :
+    PASO === 2 ? <Stopwatch /> :
+    PASO === 3 ? <InlineEditor /> :
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
