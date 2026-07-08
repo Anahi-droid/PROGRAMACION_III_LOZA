@@ -1,5 +1,8 @@
 /* src/styles/global.css */
-
+.root{
+  --border: #eaeaea;
+  --accent:var(--accent)
+}
 .globalCard {
   border:        1px solid var(--border);
   border-radius: 10px;
