@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de DOM - Academia de Idiomas</title>
+    <script src="academia_mp.js" defer></script> 
+    <style>
+        .boton {
+            background-color: red;
+            padding: 0.5em 1em;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Eventos del DOM - Idiomas</h1>
+    <h2 onclick="alert('Hello Academia')">Eventos In line</h2>
+    <button class="boton" id="btn" 
+    onclick="mostrarAlerta()">
+    Eventos con addEventListener </button>
+
+    <button class="boton" id="btn2" 
+    onclick="agregarProducto()"
+    >Agregar Curso</button>
+
+    <ul id="lista-productos1"></ul>
+    <button class="boton" id="btn3">
+        Agregar Cursos desde listener
+    </button>
+    <ul id="lista-productos2"></ul>
+    <h2 id="mensaje">
+        Texto Original de Cursos
+    </h2>
+    <button class="cambiar" id="btn4">Reemplazar texto</button>
+
+    <input id="campo" type="text" placeholder="Escribe un idioma...">
+
+    <input id="campo_actualizar_texto" 
+        type="text" placeholder="Escribe algo...">
+    <p id="parrafo">Este parrafo se actualizara</p>
+
+</body>
+</html>
